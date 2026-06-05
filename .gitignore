@@ -1,0 +1,45 @@
+# Local secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Generated data and raw API responses
+data/raw/**
+data/interim/**
+data/processed/**
+!data/raw/
+!data/raw/literature/
+!data/raw/literature/.gitkeep
+!data/interim/
+!data/interim/.gitkeep
+!data/processed/
+!data/processed/.gitkeep
+!data/examples/
+!data/examples/**
+
+# Logs and generated models
+logs/*
+*.log
+!logs/.gitkeep
+models/**
+!models/
+!models/.gitkeep
