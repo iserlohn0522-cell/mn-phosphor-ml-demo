@@ -27,7 +27,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=PROJECT_ROOT / "data" / "processed" / "synthetic_materials_descriptors.csv",
+        default=PROJECT_ROOT / "data" / "processed" / "composition_descriptors.csv",
     )
     parser.add_argument("--descriptor-backend", choices=["basic", "matminer"], default="matminer")
     parser.add_argument(

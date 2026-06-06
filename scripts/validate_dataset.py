@@ -26,7 +26,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--materials",
         type=Path,
         default=PROJECT_ROOT / "data" / "interim" / "material_records.csv",
-        help="Path to material-level CSV. Missing file is allowed in Phase 1.",
+        help="Path to material-level CSV. Missing file is allowed for dry-run metadata-only demos.",
     )
     return parser.parse_args(argv)
 
