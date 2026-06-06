@@ -14,18 +14,18 @@ from phosphor_ml.literature.candidate_review import rank_candidate_papers
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Rank candidate papers for manual phosphor review.")
+    parser = argparse.ArgumentParser(description="Score candidate papers for phosphor review.")
     parser.add_argument(
         "--input",
         type=Path,
         default=PROJECT_ROOT / "data" / "interim" / "candidate_papers.csv",
-        help="Candidate paper metadata CSV.",
+        help="Candidate metadata CSV.",
     )
     parser.add_argument(
         "--output",
         type=Path,
         default=PROJECT_ROOT / "data" / "interim" / "candidate_papers_review.csv",
-        help="Ranked review CSV to write.",
+        help="Review CSV to write.",
     )
     return parser.parse_args(argv)
 
@@ -37,9 +37,9 @@ def main(argv: list[str] | None = None) -> int:
     for row in ranked:
         counts[row["priority"]] += 1
 
-    print(f"Ranked {len(ranked)} candidate papers.")
+    print(f"Scored {len(ranked)} candidate papers.")
     print(f"High: {counts['high']}  Medium: {counts['medium']}  Low: {counts['low']}")
-    print(f"Wrote review file to {args.output}")
+    print(f"Review CSV: {args.output}")
     return 0
 
 

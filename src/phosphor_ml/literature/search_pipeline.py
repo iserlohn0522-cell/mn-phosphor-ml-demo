@@ -164,7 +164,7 @@ def _dry_run_response(source_name: str, query: str, max_results: int) -> dict:
                     "year": 2023,
                     "authors": [{"name": "C. Data"}, {"name": "D. Materials"}],
                     "venue": "Advanced Phosphor Research",
-                    "abstract": "A dry-run fixture for candidate Mn-based phosphor discovery.",
+                    "abstract": "A dry-run fixture for Mn phosphor literature triage.",
                     "url": "https://doi.org/10.1000/mn-semantic-demo",
                     "publicationTypes": ["JournalArticle"],
                 }

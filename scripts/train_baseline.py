@@ -14,19 +14,19 @@ from phosphor_ml.training.baseline import train_baseline_from_csv, write_trainin
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Train a composition-only ridge-regression baseline.")
+    parser = argparse.ArgumentParser(description="Train a composition-only ridge baseline.")
     parser.add_argument(
         "--input",
         type=Path,
         default=PROJECT_ROOT / "data" / "examples" / "synthetic_materials.csv",
-        help="Canonical material CSV used for demo training.",
+        help="Material CSV for demo training.",
     )
-    parser.add_argument("--target", default="emission_peak_nm", help="Numeric target column to predict.")
+    parser.add_argument("--target", default="emission_peak_nm", help="Numeric target column.")
     parser.add_argument(
         "--output-dir",
         type=Path,
         default=PROJECT_ROOT / "models" / "demo_baseline_emission_peak_nm",
-        help="Directory for metrics, predictions, and report.",
+        help="Output directory for metrics, predictions, and report.",
     )
     parser.add_argument("--k-folds", type=int, default=5)
     parser.add_argument("--alpha", type=float, default=1.0)
@@ -44,9 +44,10 @@ def main(argv: list[str] | None = None) -> int:
         random_seed=args.random_seed,
     )
     write_training_outputs(result, args.output_dir)
-    print(f"Trained baseline for {args.target} on {result.summary['n_rows']} labeled rows.")
+    print(f"Baseline target: {args.target}")
+    print(f"Labeled rows: {result.summary['n_rows']}")
     print(f"MAE={result.summary['mae']:.3f} RMSE={result.summary['rmse']:.3f} R2={result.summary['r2']:.3f}")
-    print(f"Wrote outputs to {args.output_dir}")
+    print(f"Output directory: {args.output_dir}")
     return 0
 
 

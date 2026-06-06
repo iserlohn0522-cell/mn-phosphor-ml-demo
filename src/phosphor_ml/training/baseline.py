@@ -339,9 +339,9 @@ def _format_training_report(result: TrainResult) -> str:
         "",
         "## Notes",
         "",
-        "- This is a composition-only ridge-regression baseline using parsed element fractions.",
-        "- Use this as a pipeline smoke test and reference baseline, not as a final discovery model.",
-        "- Demo data is synthetic and should not be interpreted as literature measurements.",
+        "- The baseline uses parsed element fractions and ridge regression.",
+        "- The run checks the training pipeline and gives later models a reference point.",
+        "- The demo data is synthetic. Do not cite it as literature measurements.",
         "",
     ]
     return "\n".join(lines)

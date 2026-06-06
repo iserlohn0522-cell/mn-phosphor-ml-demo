@@ -16,28 +16,28 @@ from phosphor_ml.utils.logging_utils import configure_logging
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Collect candidate Mn-based phosphor papers.")
+    parser = argparse.ArgumentParser(description="Collect Mn phosphor literature metadata.")
     parser.add_argument(
         "--query",
         action="append",
-        help="Search query. Repeat this option to run multiple queries. Defaults to the Phase 1 query set.",
+        help="Search query. Repeat the option for multiple queries. Defaults to the demo query set.",
     )
     parser.add_argument(
         "--max-results",
         type=int,
         default=25,
-        help="Maximum records to request per query per source.",
+        help="Maximum records per query and source.",
     )
     parser.add_argument(
         "--source",
         choices=["openalex", "semantic_scholar", "crossref", "all"],
         default="all",
-        help="Literature source to query.",
+        help="Literature source.",
     )
     parser.add_argument(
         "--dry-run",
         action="store_true",
-        help="Use local fixtures instead of calling external APIs.",
+        help="Use local fixtures and skip external API calls.",
     )
     return parser.parse_args(argv)
 
@@ -60,9 +60,9 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     output_path = config.data_dir / "interim" / "candidate_papers.csv"
-    print(f"Collected {len(records)} candidate paper records.")
-    print(f"Wrote cleaned metadata to {output_path}")
-    print(f"Wrote raw responses under {config.data_dir / 'raw' / 'literature'}")
+    print(f"Collected {len(records)} paper records.")
+    print(f"Metadata CSV: {output_path}")
+    print(f"Raw fixture payloads: {config.data_dir / 'raw' / 'literature'}")
     return 0
 
 

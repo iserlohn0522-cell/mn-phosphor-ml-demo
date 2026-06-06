@@ -1,10 +1,10 @@
-# Publication Roadmap
+# Release Plan
 
-This repository is currently a public portfolio demo. It is designed to show clean software engineering practices for a materials AI workflow while keeping research boundaries intact.
+For now, this repo serves as a public portfolio demo. It shows the engineering frame for a materials AI workflow while research data and draft conclusions remain private.
 
-## Current Public Scope
+## Current Scope
 
-Included:
+The repo includes:
 
 - synthetic material records;
 - dry-run literature metadata fixtures;
@@ -13,7 +13,7 @@ Included:
 - baseline modeling scripts;
 - tests and CI.
 
-Excluded:
+The repo leaves out:
 
 - non-public datasets;
 - raw downloaded papers or PDFs;
@@ -23,13 +23,13 @@ Excluded:
 
 ## Possible Future Companion Repository
 
-This demo could later become a paper companion repository only after publication and data-license constraints are cleared. A paper companion version would need:
+The project can become a paper companion repository after the data license, release plan, and publication constraints are settled. A companion version would need:
 
 - documented data licenses and redistribution permissions;
 - a frozen public dataset or clear download instructions for public data;
 - reproducible environment files;
 - versioned training and evaluation commands;
-- archived outputs that support only the claims made in the publication;
+- archived outputs tied to publication claims;
 - a clear separation between released results and ongoing research notes.
 
-Until those conditions are met, this repository should be treated as a professional public demo rather than a scientific-results repository.
+Until then, treat this repo as a public engineering demo while release work remains open.

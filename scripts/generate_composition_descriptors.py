@@ -18,7 +18,7 @@ from phosphor_ml.features.composition_descriptors import (  # noqa: E402
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate formula-safe composition descriptors for phosphor rows.")
+    parser = argparse.ArgumentParser(description="Generate composition descriptors from formula strings.")
     parser.add_argument(
         "--input",
         type=Path,
@@ -33,7 +33,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--allow-basic-fallback",
         action="store_true",
-        help="Fall back to basic descriptors if Matminer/Pymatgen descriptors are unavailable.",
+        help="Use basic descriptors if Matminer/Pymatgen is not installed.",
     )
     return parser.parse_args(argv)
 
@@ -94,8 +94,8 @@ def main(argv: list[str] | None = None) -> int:
         allow_basic_fallback=args.allow_basic_fallback,
     )
     write_rows(descriptor_rows, args.output)
-    print(f"Generated descriptors for {len(descriptor_rows)} rows.")
-    print(f"Wrote {args.output}")
+    print(f"Descriptor rows: {len(descriptor_rows)}")
+    print(f"Descriptor CSV: {args.output}")
     return 0
 
 

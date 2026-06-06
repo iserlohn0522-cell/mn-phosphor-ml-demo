@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "mn-phosphor-ml"
 version = "0.1.0"
-description = "Public demo for literature metadata, composition features, and regression baselines for Mn-based phosphors."
+description = "Python demo for Mn phosphor literature triage, composition features, and baseline regression."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }

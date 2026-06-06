@@ -398,6 +398,15 @@ def format_model_suite_report(payload: dict[str, Any]) -> str:
         lines.extend(["", "## Unavailable Models", ""])
         for model_name in payload["unavailable_models"]:
             lines.append(f"- {model_name}")
+    lines.extend(
+        [
+            "",
+            "## Notes",
+            "",
+            "- Demo labels are synthetic.",
+            "- These metrics check the workflow. They do not support phosphor performance claims.",
+        ]
+    )
     lines.append("")
     return "\n".join(lines)
 

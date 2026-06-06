@@ -15,18 +15,18 @@ from phosphor_ml.schemas import MATERIAL_SCHEMA, PAPER_SCHEMA, validate_columns
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Validate generated CSV files against canonical schemas.")
+    parser = argparse.ArgumentParser(description="Check CSV columns against the project schemas.")
     parser.add_argument(
         "--papers",
         type=Path,
         default=PROJECT_ROOT / "data" / "interim" / "candidate_papers.csv",
-        help="Path to candidate paper metadata CSV.",
+        help="Candidate paper metadata CSV.",
     )
     parser.add_argument(
         "--materials",
         type=Path,
         default=PROJECT_ROOT / "data" / "interim" / "material_records.csv",
-        help="Path to material-level CSV. Missing file is allowed for dry-run metadata-only demos.",
+        help="Material-level CSV. Dry-run metadata demos may omit this file.",
     )
     return parser.parse_args(argv)
 
@@ -43,7 +43,7 @@ def main(argv: list[str] | None = None) -> int:
             print(error)
         return 1
 
-    print("Dataset schema validation passed.")
+    print("Schema check passed.")
     return 0
 
 
@@ -51,7 +51,7 @@ def _validate_csv(path: Path, expected_schema: list[str], label: str, required: 
     if not path.exists():
         if required:
             return [f"Missing required {label} file: {path}"]
-        print(f"Skipping optional {label} file: {path}")
+        print(f"Optional {label} file not found: {path}")
         return []
 
     with path.open(newline="", encoding="utf-8") as handle:
