@@ -136,3 +136,7 @@ The synthetic labels do not come from literature. Use the metrics to check the e
 This repo keeps public demo code separate from research material that needs permission, review, or publication clearance. The committed CSV gives the scripts enough rows to run as fixture data. Released scientific datasets belong in a separate, licensed release.
 
 Put real API keys or contact emails in a local `.env` file. Git ignores `.env`, and the demo and CI run without it.
+
+## Acknowledgments
+
+This demo is inspired by a Mn phosphor research direction suggested by Prof. Peifen Zhu.
